@@ -1,5 +1,4 @@
-# Robust-Navigation-Trajectory-Control-for-Autonomous-Mobile-RobotsRobust Navigation & Trajectory Control for Autonomous Mobile Robots
-
+# Robust-Navigation-Trajectory-Control-for-Autonomous-Mobile-Robots
 ## 1. Project Overview
 
 This repository implements a complete navigation stack for differential drive robots (TurtleBot3) operating in unstructured environments. The system bypasses traditional heavy global planners (like Nav2's costmap) in favor of a lightweight, hybrid control architecture.
