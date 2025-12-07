@@ -14,14 +14,14 @@ Reactive Safety Layer: Implements Artificial Potential Fields (APF) using 2D LiD
 
 ## 2. Simulation Results
 
-Gazebo Environment ("The Mess")
+### Gazebo Environment ("The Mess")
 
 The robot navigates through a randomized field of obstacles (construction cones, barriers, dumpsters). The environment is designed to test the robot's ability to deviate from its optimal path to ensure safety.
 
 <img width="1774" height="932" alt="image" src="https://github.com/user-attachments/assets/fe7e691b-5ec3-489a-8993-c395b77bd1a9" />
 
 
-RViz Visualization
+### RViz Visualization
 
 Real-time visualization of the B-Spline path (Green), LiDAR scans (Red), and the robot's odometry frame.
 <img width="1774" height="932" alt="image" src="https://github.com/user-attachments/assets/b8a8e13e-1842-4859-9616-27d1120c63da" />
@@ -99,11 +99,11 @@ Starts the core node for path smoothing and control logic.
 source install/setup.bash
 ros2 run path_tracking_assignment controller
 ```
-5. Technical Architecture & Logic
+## 5. Technical Architecture & Logic
 
 The system operates as a single high-frequency node (RobustNavigator) running at 20Hz. The control logic is divided into three hierarchical layers.
 
-Layer 1: Path Smoothing (B-Splines)
+### Layer 1: Path Smoothing (B-Splines)
 
 Raw waypoints provided by global planners are often discrete and create sharp, non-differentiable turns.
 
@@ -113,7 +113,7 @@ Mathematics: A cubic spline ($k=3$) is fitted to generate $C^2$ continuity (cont
 
 Output: A dense array of 1000 coordinate points $(x, y)$ representing the ideal path.
 
-Layer 2: Trajectory Tracking (Pure Pursuit)
+### Layer 2: Trajectory Tracking (Pure Pursuit)
 
 To follow the smoothed path, the robot computes the curvature required to reach a moving target point.
 
@@ -129,7 +129,7 @@ $$v_{cmd} = v_{target}, \quad \omega_{cmd} = \frac{2v \sin(\alpha)}{L_d}$$
 
 Where $\alpha$ is the heading error between the robot's orientation and the lookahead vector.
 
-Layer 3: Reactive Obstacle Avoidance (Potential Fields)
+### Layer 3: Reactive Obstacle Avoidance (Potential Fields)
 
 This layer overrides the tracking controller when obstacles are detected by the LiDAR.
 
@@ -151,7 +151,7 @@ Warning Zone (< 0.6m): Robot slows down and blends the repulsive force to "nudge
 
 Critical Zone (< 0.35m): Path tracking is suspended. The robot executes an in-place rotation away from the closest obstacle vector until clear.
 
-6. Extension to Real Hardware
+## 6. Extension to Real Hardware
 
 To deploy this package on a physical TurtleBot3:
 
@@ -161,7 +161,7 @@ Sensor Noise: Apply a median filter to the real LiDAR data to remove "salt-and-p
 
 Fail-safe: Implement a "dead-man timer" that stops the motors if the control loop latency exceeds 200ms.
 
-7. AI Tools Usage Statement
+## 7. AI Tools Usage Statement
 
 Generative AI tools were utilized during development for:
 
@@ -171,7 +171,7 @@ Verifying the quaternion-to-euler transformation mathematics.
 
 Debugging the Pure Pursuit index search logic for closed-loop paths.
 
-8. License
+## 8. License
 
 This project is licensed under the Apache 2.0 License.
 
