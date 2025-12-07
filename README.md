@@ -29,6 +29,9 @@ Real-time visualization of the B-Spline path (Green), LiDAR scans (Red), and the
 <img width="1789" height="859" alt="image" src="https://github.com/user-attachments/assets/b18acbbd-933a-4b85-ba4c-258011451e11" />
 
 
+## Video Link : 
+https://drive.google.com/file/d/1ySNksPQGgjlOVRS6qKklsxnbkY8dcm3i/view
+
 ## 3. Setup & Installation
 
 3.1 Prerequisites
