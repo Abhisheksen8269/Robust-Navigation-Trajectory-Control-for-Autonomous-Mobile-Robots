@@ -1,6 +1,6 @@
 # Robust-Navigation-Trajectory-Control-for-Autonomous-Mobile-RobotsRobust Navigation & Trajectory Control for Autonomous Mobile Robots
 
-1. Project Overview
+## 1. Project Overview
 
 This repository implements a complete navigation stack for differential drive robots (TurtleBot3) operating in unstructured environments. The system bypasses traditional heavy global planners (like Nav2's costmap) in favor of a lightweight, hybrid control architecture.
 
@@ -11,6 +11,20 @@ Global Path Smoothing: Converts sparse waypoints into continuous B-Spline trajec
 Trajectory Tracking: Utilizes a Pure Pursuit controller with sequential index search for robust path following.
 
 Reactive Safety Layer: Implements Artificial Potential Fields (APF) using 2D LiDAR data to dynamically deviate from the global path and avoid obstacles.
+
+## 2. Simulation Results
+
+Gazebo Environment ("The Mess")
+
+The robot navigates through a randomized field of obstacles (construction cones, barriers, dumpsters). The environment is designed to test the robot's ability to deviate from its optimal path to ensure safety.
+
+(Place your Gazebo screenshot here. E.g., The robot facing the obstacles)
+
+RViz Visualization
+
+Real-time visualization of the B-Spline path (Green), LiDAR scans (Red), and the robot's odometry frame.
+
+(Place your RViz screenshot here. E.g., The green path line and laser scan)
 
 ## 2. Setup & Installation
 
